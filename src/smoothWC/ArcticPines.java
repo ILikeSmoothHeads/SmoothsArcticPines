@@ -136,8 +136,8 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 	            }
 	            if(Variables.beaver)
 	            	Variables.jobs.add(new Beaver());
-	            	Variables.jobs.add(new RenewPoints());
-	            	Variables.jobs.add(new ObeliskToArea());
+	            	//Variables.jobs.add(new RenewPoints());
+	            	//Variables.jobs.add(new ObeliskToArea());
 	            	
 
 	            

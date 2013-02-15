@@ -31,7 +31,7 @@ public class RenewPoints extends Node{
 				sleep(10000,12000);
 			}
 		}
-		if(Variables.bridgeSide2.contains(Players.getLocal().getLocation())){
+		if(Variables.bridgeSide2.contains(Players.getLocal().getLocation()) && !obelisk.isOnScreen()){
 			Walking.walk(Variables.obeliskTile);
 			sleep(1000,1200);
 		}
