@@ -14,7 +14,7 @@ public class RenewPoints extends Node{
 
 	@Override
 	public boolean activate() {
-		return Summoning.getPoints() < 5;
+		return Summoning.getTimeLeft() < 2;
 	}
 
 	@Override
