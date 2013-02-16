@@ -68,8 +68,7 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 		Variables.summPoints = Skills.getLevel(Skills.SUMMONING);
 		Variables.startingLogs = Inventory.getCount(Variables.articLogs_ID);
 		Variables.wcStartingXp = Skills.getExperience(Skills.WOODCUTTING);
-		if(!Variables.guiOpen)
-			Variables.startTime = System.currentTimeMillis();
+		Variables.startTime = System.currentTimeMillis();
 		Variables.startingUrns = Inventory.getCount(Variables.fullUrn_ID);
 		
 			try {
@@ -106,7 +105,7 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 			
 			System.out.println(Summoning.getTimeLeft());
 		
-			if(Variables.beaver)
+			
 				
 			Variables.profit = Variables.price0*Inventory.getCount(Variables.seed_IDs[0]) + 
 					Variables.price1*Inventory.getCount(Variables.seed_IDs[1]) + 
@@ -126,6 +125,11 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 	            }
 			}else {
 				
+				 if(Variables.beaver){
+		            	Variables.jobs.add(new Beaver());
+		            	Variables.jobs.add(new RenewPoints());
+		            	Variables.jobs.add(new ObeliskToArea());
+		            }
 				Variables.jobs.add(new FireCheck());
 	            Variables.jobs.add(new Chop());
 	            Variables.jobs.add(new LightLogs());
@@ -136,11 +140,7 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 	            	Variables.jobs.add(new LootNests());
 	            	Variables.jobs.add(new OpenNest());
 	            }
-	            if(Variables.beaver){
-	            	Variables.jobs.add(new Beaver());
-	            	Variables.jobs.add(new RenewPoints());
-	            	Variables.jobs.add(new ObeliskToArea());
-	            }
+	           
 	            	
 
 	            

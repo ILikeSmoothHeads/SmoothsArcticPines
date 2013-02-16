@@ -14,7 +14,7 @@ public class RenewPoints extends Node{
 
 	@Override
 	public boolean activate() {
-		return Summoning.isFamiliarSummoned() && Summoning.getTimeLeft() < 60 && Summoning.getPoints() == 0;
+		return  Summoning.getTimeLeft() < 61 && Summoning.getPoints() == 0;
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public class Beaver extends Node {
 
 	@Override
 	public boolean activate() {
-		if(Variables.choppingArea.contains(Players.getLocal().getLocation()) || Variables.bridgeSide2.contains(Players.getLocal().getLocation()))
+		if(Variables.choppingArea.contains(Players.getLocal().getLocation()))
 			return !Summoning.isFamiliarSummoned() && Summoning.getPoints() > 5;
 		return false;
 		
@@ -22,6 +22,7 @@ public class Beaver extends Node {
 		Variables.status = "Summoning Beaver";
 		if(Inventory.getItem(Variables.beaver_ID) != null){
 			Inventory.getItem(Variables.beaver_ID).getWidgetChild().interact("Summon");
+			sleep(1000,1200);
 		}else Variables.status = "No Beaver pouches";
 		
 	}

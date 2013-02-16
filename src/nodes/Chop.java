@@ -10,6 +10,8 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 
 import smoothWC.Variables;
 
+
+
 public class Chop extends Node {
 	
 
