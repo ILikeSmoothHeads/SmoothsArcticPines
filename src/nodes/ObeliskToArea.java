@@ -13,7 +13,6 @@ public class ObeliskToArea extends Node{
 
 	@Override
 	public boolean activate() {
-		// TODO Auto-generated method stub
 		return Variables.bridgeSide2.contains(Players.getLocal().getLocation()) && Summoning.getPoints() > 5;
 	}
 

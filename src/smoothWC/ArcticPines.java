@@ -37,6 +37,7 @@ import org.powerbot.game.api.methods.input.Keyboard;
 import org.powerbot.game.api.methods.input.Mouse;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.methods.tab.Skills;
+import org.powerbot.game.api.methods.tab.Summoning;
 
 
 @Manifest (authors ={"ILikeSmoothHeads"},
@@ -67,7 +68,8 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 		Variables.summPoints = Skills.getLevel(Skills.SUMMONING);
 		Variables.startingLogs = Inventory.getCount(Variables.articLogs_ID);
 		Variables.wcStartingXp = Skills.getExperience(Skills.WOODCUTTING);
-		Variables.startTime = System.currentTimeMillis();
+		if(!Variables.guiOpen)
+			Variables.startTime = System.currentTimeMillis();
 		Variables.startingUrns = Inventory.getCount(Variables.fullUrn_ID);
 		
 			try {
@@ -102,7 +104,7 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 	public int loop() {
 		if(!Variables.guiOpen){
 			
-			
+			System.out.println(Summoning.getTimeLeft());
 		
 			if(Variables.beaver)
 				
@@ -134,10 +136,11 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 	            	Variables.jobs.add(new LootNests());
 	            	Variables.jobs.add(new OpenNest());
 	            }
-	            if(Variables.beaver)
+	            if(Variables.beaver){
 	            	Variables.jobs.add(new Beaver());
 	            	Variables.jobs.add(new RenewPoints());
 	            	Variables.jobs.add(new ObeliskToArea());
+	            }
 	            	
 
 	            
@@ -174,7 +177,7 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 			    g.drawString("" + Variables.wcGainedXp + "   (" + Variables.xpHour + " per hour)", 210, 455);
 			    g.drawString("" + Variables.urnsFilled, 205, 476);
 			    g.drawString("" + Variables.nestsLooted, 228, 498);
-			    g.drawString("" + Variables.profit, 165, 519);
+			    g.drawString("" + Variables.profit+ "gp", 165, 519);
 			    g.drawString("Status: " + Variables.status, 250, 519);
 		    }
 	    }
@@ -183,6 +186,8 @@ public class ArcticPines extends ActiveScript implements PaintListener, MessageL
 	    g.setColor(Color.RED);
 	    g.setFont(Variables.font2);
 	    g.drawString("Toggle", 466, 405);
+	    
+	    g.drawImage(Variables.mouseImg, Mouse.getX()-26, Mouse.getY()-1, null);
 	    
 	}
 	

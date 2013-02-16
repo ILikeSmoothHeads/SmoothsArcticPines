@@ -23,8 +23,8 @@ public class Variables {
 	
 	public static int arcticPine_ID = 70057;
 	public static int articLogs_ID = 10810;
-	public static int strongUrn_ID = 20316;
-	public static int fullUrn_ID = 20318;
+	public static int [] strongUrn_ID = {20316, 20310};
+	public static int [] fullUrn_ID = {20318, 20312};
 	public static int beaver_ID = 12021;
 	public static int fire_ID = 70760;
 	public static int seedNest_ID = 5073;
@@ -95,6 +95,7 @@ public class Variables {
 	public static final Font font2 = new Font("Arial", Font.BOLD, 14);
 
 	public static Image proggyImg = getImage("http://i.imgur.com/mdKfDIp.png");
+	public static Image mouseImg = getImage("http://images3.wikia.nocookie.net/__cb20121110031047/runescape/images/0/0e/Dragon_hatchet.png");
 	
 	private static Image getImage(String url) {
         try { return ImageIO.read(new URL(url)); } 

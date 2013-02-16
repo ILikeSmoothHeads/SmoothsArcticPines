@@ -11,8 +11,8 @@ public class Beaver extends Node {
 
 	@Override
 	public boolean activate() {
-		if(Summoning.getPoints() > 5 && Variables.choppingArea.contains(Players.getLocal().getLocation()))
-			return !Summoning.isFamiliarSummoned() || Summoning.getTimeLeft() < 1;
+		if(Variables.choppingArea.contains(Players.getLocal().getLocation()) || Variables.bridgeSide2.contains(Players.getLocal().getLocation()))
+			return !Summoning.isFamiliarSummoned() && Summoning.getPoints() > 5;
 		return false;
 		
 	}

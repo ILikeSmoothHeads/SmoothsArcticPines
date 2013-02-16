@@ -25,7 +25,8 @@ public class SendUrns extends Node {
 			Variables.teleButton.click(true);
 			sleep(1000,1200);
 		}
-		Variables.urnsFilled++;
+		if(!Inventory.contains(Variables.fullUrn_ID))
+			Variables.urnsFilled++;
 		
 		
 	}

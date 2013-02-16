@@ -14,7 +14,7 @@ public class RenewPoints extends Node{
 
 	@Override
 	public boolean activate() {
-		return Summoning.getTimeLeft() < 2;
+		return Summoning.isFamiliarSummoned() && Summoning.getTimeLeft() < 60 && Summoning.getPoints() == 0;
 	}
 
 	@Override
@@ -38,6 +38,7 @@ public class RenewPoints extends Node{
 		Variables.status = "Renewing points";
 		if(obelisk.isOnScreen()){
 			obelisk.interact("Renew-points");
+			sleep(1000,1200);
 		} else Camera.turnTo(obelisk);
 		
 	}
